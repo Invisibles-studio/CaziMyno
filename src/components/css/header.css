@@ -1,0 +1,8 @@
+.avatar{
+    width: 66px;
+    height: 66px;
+    border-radius: 130px;
+    background: #DDDDDD;
+    border: 1px solid;
+    border-image-source: linear-gradient(139.01deg, #FFDE2E 14.61%, #8625A0 86.21%);
+}

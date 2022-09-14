@@ -1,0 +1,73 @@
+.MainBackground{
+    width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.Login{
+    font-family: 'Exo', sans-serif;
+    font-size: calc(100vw/53);
+    font-weight: 500;
+    color: white;
+    margin: 20px 0 0;
+}
+
+.login-block{
+    border-radius: 50px;
+    width: calc(100vw/3.3);
+    backdrop-filter: blur(4px);
+    background: rgba(134, 37, 160, 0.1);
+    border: 8px solid #8625A0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 500ms ease;
+}
+
+.input-title{
+    font-size: 20px;
+    font-family: 'Exo', sans-serif;
+    color: white;
+    margin: 40px 0 0 80px;
+    font-weight: 500;
+}
+
+.input-login{
+    margin-left: 40px;
+    margin-right: 40px;
+    height: calc(100vh/10.76);
+    background: rgba(134, 37, 160, 0.5);
+    border: 5px solid #8625A0;
+    border-radius: 114px;
+    font-size: 32px;
+    font-family: 'Exo', sans-serif;
+    outline: none;
+    padding-left: 40px;
+    font-weight: 500;
+    color: white;
+}
+
+.login-button{
+    background: #FFDE2E;
+    border-radius: 106px;
+    color: #202020;
+    width: calc(100vw/4.74);
+    height: calc(100vh/10.76);
+    outline: none;
+    font-weight: 500;
+    font-size: 32px;
+    font-family: 'Exo', sans-serif;
+    border-color: #FFDE2E;
+}
+
+.comeback-button{
+    background: #828282;
+    border-radius: 106px;
+    color: #202020;
+    width: calc(100vw/4.74);
+    height: calc(100vh/10.76);
+    outline: none;
+    font-weight: 500;
+    font-size: 32px;
+    font-family: 'Exo', sans-serif;
+    border-color: #828282;
+}

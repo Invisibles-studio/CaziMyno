@@ -1,0 +1,60 @@
+.MainBackground{
+    width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    font-family: Exo, sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    color: white;
+}
+
+.title-additional{
+    font-family: Exo, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+}
+
+.game-object{
+    width: 200px;
+    height: 200px;
+    background: #2D2D2D;
+    border-radius: 20px;
+    margin-left: 17px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-object-type{
+    font-size: 36px;
+    font-weight: 500;
+    font-family: Exo, sans-serif;
+    color: #32FF2E;
+    margin-top: 36px;
+}
+
+.game-object-type-lose{
+    color: #EB001B;
+}
+
+.game-object-money{
+    font-family: Exo, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: white;
+}
