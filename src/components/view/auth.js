@@ -60,8 +60,8 @@ export default function Auth(){
                         </div>
                     }
                     <div style={{display: 'flex', flexDirection: 'column', marginLeft: 64, alignItems: 'center'}}>
-                        <input type={'submit'} value={actionButtonName} className={'login-button'} style={{marginTop: topBlockButtonsMargin}} onClick={() => navigation('/profile')}/>
-                        <input type={'submit'} value={'COME BACK'} className={'comeback-button'} style={{marginTop: 28}} onClick={() => navigation('/')}/>
+                        <input type={'submit'} value={actionButtonName} className={'login-button'} style={{marginTop: topBlockButtonsMargin}} onClick={() => navigation('/CaziMyno/profile')}/>
+                        <input type={'submit'} value={'COME BACK'} className={'comeback-button'} style={{marginTop: 28}} onClick={() => navigation('/CaziMyno/')}/>
                         {
                             isLoginBlock &&
                             <span style={{

@@ -41,7 +41,7 @@ export default function Header({auth = false}){
             <div style={{
                 flexDirection: 'column', display: 'flex', width: 88, alignItems: 'center', cursor: "pointer",
                 marginRight: 167
-            }} onClick={() => navigation(auth ? '/profile' : '/auth')}>
+            }} onClick={() => navigation(auth ? '/CaziMyno/profile' : '/CaziMyno/auth')}>
                 <div style={style.avatar} >
                     <img src={require('../images/avatar.png')} style={{width: '100%', height: '100%'}}/>
                 </div>

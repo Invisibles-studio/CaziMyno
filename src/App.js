@@ -15,11 +15,11 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={<Main/>}></Route>
-          <Route path="/auth" element={<Auth/>}></Route>
-          <Route path="/profile" element={<Profile/>}></Route>
-          <Route path="/game-history" element={<History/>}></Route>
-          <Route path="/balance-history" element={<History game={false}/>}></Route>
+          <Route path="/CaziMyno" element={<Main/>}></Route>
+          <Route path="/CaziMyno/auth" element={<Auth/>}></Route>
+          <Route path="/CaziMyno/profile" element={<Profile/>}></Route>
+          <Route path="/CaziMyno/game-history" element={<History/>}></Route>
+          <Route path="/CaziMyno/balance-history" element={<History game={false}/>}></Route>
         </Routes>
       </Router>
     </div>

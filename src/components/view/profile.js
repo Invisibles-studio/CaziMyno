@@ -17,13 +17,13 @@ export default function Profile(){
                     <div className={'column'} style={{justifyContent: 'center'}}>
                         <div className={'row'}>
                             <img src={require('../images/gameHistoryIcon.png')} className={'icons'}/>
-                            <div className={'button-history'} onClick={() => navigation('/game-history')}>
+                            <div className={'button-history'} onClick={() => navigation('/CaziMyno/game-history')}>
                                 <span className={'button-text'}>GAME HISTORY</span>
                             </div>
                         </div>
                         <div className={'row'} style={{marginTop: 36}}>
                             <img src={require('../images/balanceHistoryIcon.png')} className={'icons'}/>
-                            <div className={'button-history green-button'} onClick={() => navigation('/balance-history')}>
+                            <div className={'button-history green-button'} onClick={() => navigation('/CaziMyno/balance-history')}>
                                 <span className={'button-text'}>BALANCE HISTORY</span>
                             </div>
                         </div>
@@ -31,7 +31,7 @@ export default function Profile(){
                     <div className={'column'} style={{marginLeft: 100, justifyContent: 'center', alignItems: 'center'}}>
                         <img src={require('../images/avatar.png')} className={'big-avatar'}/>
                         <span className={'nickname'}>ANOIBY</span>
-                        <div className={'button-history'} style={{marginTop: 35}} onClick={() => navigation('/')}>
+                        <div className={'button-history'} style={{marginTop: 35}} onClick={() => navigation('/CaziMyno/')}>
                             <span className={'button-text'}>EXIT</span>
                         </div>
                     </div>
