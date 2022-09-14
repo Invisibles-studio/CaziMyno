@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/ToDoDesk/static/css/main.9dff7ea5.css",
+    "main.js": "/ToDoDesk/static/js/main.8b03427e.js",
+    "static/js/787.136a163f.chunk.js": "/ToDoDesk/static/js/787.136a163f.chunk.js",
+    "static/media/background.png": "/ToDoDesk/static/media/background.d48fae0be6e46fd44940.png",
+    "static/media/cazimynologo.png": "/ToDoDesk/static/media/cazimynologo.6c93e838e7bab2dbbbb6.png",
+    "static/media/avatar.png": "/ToDoDesk/static/media/avatar.305aad6cc7d92b6cab5b.png",
+    "index.html": "/ToDoDesk/index.html",
+    "main.9dff7ea5.css.map": "/ToDoDesk/static/css/main.9dff7ea5.css.map",
+    "main.8b03427e.js.map": "/ToDoDesk/static/js/main.8b03427e.js.map",
+    "787.136a163f.chunk.js.map": "/ToDoDesk/static/js/787.136a163f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9dff7ea5.css",
+    "static/js/main.8b03427e.js"
+  ]
+}
