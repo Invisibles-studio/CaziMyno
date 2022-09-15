@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/CaziMyno/static/css/main.ff241eb1.css",
-    "main.js": "/CaziMyno/static/js/main.4fa2a14d.js",
+    "main.css": "/CaziMyno/static/css/main.7e426791.css",
+    "main.js": "/CaziMyno/static/js/main.f17a507d.js",
     "static/js/787.136a163f.chunk.js": "/CaziMyno/static/js/787.136a163f.chunk.js",
     "static/media/background.png": "/CaziMyno/static/media/background.d48fae0be6e46fd44940.png",
     "static/media/cazimynologo.png": "/CaziMyno/static/media/cazimynologo.6c93e838e7bab2dbbbb6.png",
     "static/media/avatar.png": "/CaziMyno/static/media/avatar.305aad6cc7d92b6cab5b.png",
     "index.html": "/CaziMyno/index.html",
-    "main.ff241eb1.css.map": "/CaziMyno/static/css/main.ff241eb1.css.map",
-    "main.4fa2a14d.js.map": "/CaziMyno/static/js/main.4fa2a14d.js.map",
+    "main.7e426791.css.map": "/CaziMyno/static/css/main.7e426791.css.map",
+    "main.f17a507d.js.map": "/CaziMyno/static/js/main.f17a507d.js.map",
     "787.136a163f.chunk.js.map": "/CaziMyno/static/js/787.136a163f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff241eb1.css",
-    "static/js/main.4fa2a14d.js"
+    "static/css/main.7e426791.css",
+    "static/js/main.f17a507d.js"
   ]
 }
