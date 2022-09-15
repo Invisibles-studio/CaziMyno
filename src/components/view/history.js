@@ -140,13 +140,10 @@ export default function History({game = true}){
         }
     ]
 
-    data = sliceIntoChunks(data, 5)
-    data2 = sliceIntoChunks(data2, 5)
-
     return(
         <div className={"MainBackground"}>
-            <img src={require('../images/background.png')} style={{width: '100%', height: '100%'}}/>
-            <div style={{position: 'absolute', left: 0, top: 0}}>
+            <img src={require('../images/background.png')} className={'screen-background'}/>
+            <div style={{position: 'absolute', left: 0, top: 0}} className={'big-background'}>
                 <Header auth={true}/>
                 <div className={'row'} style={{justifyContent: 'center', marginTop: 72}}>
                     <div className={'column'} style={{alignItems: 'center'}}>
@@ -155,13 +152,9 @@ export default function History({game = true}){
                     </div>
                 </div>
                 <div className={'row'} style={{justifyContent: 'center', marginTop: 50}}>
-                    <div className={'column'}>
+                    <div className={'grid'}>
                         {
-                            game && data.map((item, index) => {
-                                return (
-                                    <div className={'row'}>
-                                        {
-                                            item.map((item2, index2) =>
+                            game && data.map((item2, index2) =>
                                                 <div className={'game-object'} key={index2}>
                                                     <span className={`game-object-type ${item2.type !== 'won' ? 'game-object-type-lose': ''}`}>{item2.type.toUpperCase()}</span>
                                                     <div className={'row'} style={{alignItems: 'center'}}>
@@ -174,18 +167,10 @@ export default function History({game = true}){
 
                                                 </div>
                                             )
-                                        }
-                                    </div>
-                                    )
 
-                            })
                         }
                         {
-                            !game && data2.map((item, index) => {
-                                return (
-                                    <div className={'row'}>
-                                        {
-                                            item.map((item2, index2) =>
+                            !game && data2.map((item2, index2) =>
                                                 <div className={'game-object'} key={index2}>
                                                     <span className={`game-object-type`} style={{fontSize: 20}}>{item2.type.toUpperCase()}</span>
                                                     <div className={'row'} style={{alignItems: 'center', marginTop: 18}}>
@@ -195,11 +180,6 @@ export default function History({game = true}){
                                                     <span className={'game-object-money'} style={{marginTop: 16}}>{item2.card}</span>
                                                 </div>
                                             )
-                                        }
-                                    </div>
-                                )
-
-                            })
                         }
                     </div>
                 </div>

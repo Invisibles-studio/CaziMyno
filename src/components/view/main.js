@@ -1,21 +1,18 @@
 import React from "react";
 import Header from "../Tools/Header";
 import '../css/main.css'
-import '../css/fonts.css'
 
 export default function Main(){
 
     return(
         <div className={'MainBackground'}>
-            <img src={require('../images/background.png')} style={{width: '100%', height: '100%'}}/>
+            <img src={require('../images/background.png')} className={'screen-background'}/>
             <div style={{position: 'absolute', left: 0, top: 0}}>
                 <Header/>
-                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+                <div className={'aboutTheGame-row'}>
                     <p className={'aboutTheGame'}>ABOUT THE GAME</p>
                 </div>
-                <div style={{
-                    display: 'flex', flexDirection: 'row', marginTop: 123, justifyContent: 'space-between',
-                }}>
+                <div className={'main-row'}>
                     <div className={'rulesBlock'}>
                         <p className={'rulesText'}>
                                 You need to play dominoes to win money.
@@ -26,7 +23,7 @@ export default function Main(){
                                 account
                             </p>
                     </div>
-                    <div style={{display: 'flex', flexDirection: 'column', width: 375, alignItems: 'center', marginRight: 137}}>
+                    <div className={'how-to-play-block'}>
                         <p className={'howToPlay'}>
                             HOW TO PLAY?
                         </p>

@@ -16,21 +16,16 @@ export default function Header({auth = false}){
             justifyContent: 'space-between'
         },
         avatar: {
-            width: 66,
-            height: 66,
-            borderRadius: 130,
-            background: '#DDDDDD'
+
         }
     }
 
     const navigation = useNavigate()
 
     return(
-        <div style={style.background}>
-            <img src={require('../images/cazimynologo.png')} style={{
-                width: 94, height: 91, marginLeft: 167
-            }}/>
-            <div style={{flexDirection: 'row', display: 'flex'}}>
+        <div className={'header-background'}>
+            <img src={require('../images/cazimynologo.png')} className={'cazi-myno-logo'}/>
+            <div className={'cazi-myno-logo-text'}>
                 <p style={{
                 fontFamily: 'Exo', fontWeight: '600', fontSize: 32, margin: 0, color: '#FFDE2E', userSelect: 'none'
             }}>CAZI</p>
@@ -38,17 +33,11 @@ export default function Header({auth = false}){
                     fontFamily: 'Exo', fontWeight: '600', fontSize: 32, margin: 0, color: '#8625A0', marginLeft: 4, userSelect: 'none'
                 }}>MYNO</p>
             </div>
-            <div style={{
-                flexDirection: 'column', display: 'flex', width: 88, alignItems: 'center', cursor: "pointer",
-                marginRight: 167
-            }} onClick={() => navigation(auth ? '/CaziMyno/profile' : '/CaziMyno/auth')}>
-                <div style={style.avatar} >
+            <div className={'avatar-block'} onClick={() => navigation(auth ? '/CaziMyno/profile' : '/CaziMyno/auth')}>
+                <div style={style.avatar} className={'avatar-photo'} >
                     <img src={require('../images/avatar.png')} style={{width: '100%', height: '100%'}}/>
                 </div>
-                <p style={{
-                    fontFamily: 'Exo', fontWeight: '500', color: 'white', margin: 0, marginTop: 6,
-                    userSelect: 'none',
-                }}>{auth ? "My profile" : 'Authorization'}</p>
+                <p className={'avatar-text'}>{auth ? "My profile" : 'Authorization'}</p>
             </div>
         </div>
     )

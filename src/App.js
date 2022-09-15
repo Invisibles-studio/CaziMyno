@@ -5,6 +5,7 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
+import './components/css/fonts.css'
 import Main from "./components/view/main";
 import Auth from "./components/view/auth";
 import Profile from "./components/view/profile";

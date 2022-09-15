@@ -6,7 +6,7 @@
 
 .rulesBlock{
     position: relative;
-    margin-left: 176px;
+    margin-left: 50px;
     backdrop-filter: blur(2px);
     align-items: center;
     display: flex;
@@ -41,7 +41,7 @@
 
 .howToPlay{
     font-family: 'Exo', sans-serif;
-    font-size: calc(100vw/53);
+    font-size: max(calc(100vw/53), 19px);
     color: white;
     font-weight: 500;
     margin: 0
@@ -57,8 +57,131 @@
 
 .aboutTheGame{
     font-family: 'Exo', sans-serif;
-    font-size: calc(100vw/53);
+    font-size: max(calc(100vw/53), 19px);
     font-weight: 500;
     color: white;
     margin: 72px 0 0;
+}
+
+.screen-background{
+    width: 100%;
+    height: 100%;
+}
+
+.aboutTheGame-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.main-row{
+    display: flex;
+    flex-direction: row;
+    margin-top: 123px;
+    justify-content: space-between;
+}
+
+.how-to-play-block{
+    display: flex;
+    flex-direction: column;
+    width: 375px;
+    align-items: center;
+    margin-right: 50px;
+    justify-content: center;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 800px) {
+    .screen-background{
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+
+    .MainBackground{
+        width: 100%;
+        height: 100vh;
+        overflow-y: hidden;
+        background:  linear-gradient(180deg, #202020 9.81%, #222222 100%);
+    }
+
+    .aboutTheGame{
+        font-family: 'Exo', sans-serif;
+        font-size: 19px;
+        font-weight: 500;
+        color: white;
+        margin: 17px 0 0;
+    }
+
+    .aboutTheGame-row{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100vw;
+    }
+
+    .main-row{
+        display: flex;
+        flex-direction: column;
+        margin-top: 34px;
+        align-items: center;
+    }
+
+    .rulesBlock{
+        position: relative;
+        margin-left: 54px;
+        margin-right: 53px;
+        max-width: 268px;
+        backdrop-filter: blur(2px);
+        align-items: center;
+        display: flex;
+        background: rgba(255, 255, 255, 0.01);
+        border-radius: 30px;
+    }
+
+    .rulesBlock::before{
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 30px;
+        padding: 1px;
+        border: 1px solid;
+        background: linear-gradient(222.17deg, #FFDE2E 8.08%, #8625A0 76.23%);
+        -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+    }
+
+    .rulesText{
+        color: white;
+        font-family: Exo, sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        text-align: center;
+        margin: 15px;
+    }
+
+    .howToPlay{
+        font-family: 'Exo', sans-serif;
+        font-size: max(calc(100vw/53), 19px);
+        color: white;
+        font-weight: 500;
+        margin: 34px 0 0;
+    }
+
+    .youtubeVideo{
+        width: 256px;
+        height: 144px;
+        margin-top: 46px;
+    }
+
+    .how-to-play-block{
+        display: flex;
+        flex-direction: column;
+        width: 256px;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+    }
 }

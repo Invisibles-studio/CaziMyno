@@ -6,3 +6,96 @@
     border: 1px solid;
     border-image-source: linear-gradient(139.01deg, #FFDE2E 14.61%, #8625A0 86.21%);
 }
+
+.cazi-myno-logo{
+    width: 94px;
+    height: 91px;
+    margin-left: 167px;
+}
+
+.header-background{
+    width: 100vw;
+    height: 120px;
+    border-bottom: 3px solid #2D2D2D;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cazi-myno-logo-text{
+    display: flex;
+    flex-direction: row;
+}
+
+.avatar-block{
+    flex-direction: column;
+    display: flex;
+    width: 88px;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 167px;
+}
+
+.avatar-photo{
+    width: 66px;
+    height: 66px;
+    border-radius: 130px;
+    background: #DDDDDD;
+}
+
+.avatar-text{
+    font-family: Exo, sans-serif;
+    font-weight: 500;
+    color: white;
+    margin: 6px 0 0;
+    user-select: none;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 800px) {
+    .cazi-myno-logo{
+        width: 40px;
+        height: 40px;
+        margin-left: 18px;
+    }
+
+    .header-background{
+        width: 100vw;
+        height: 57px;
+        border-bottom: 3px solid #2D2D2D;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .cazi-myno-logo-text{
+        visibility: hidden;
+        width: 0;
+    }
+
+    .avatar-block{
+        flex-direction: column;
+        display: flex;
+        width: 88px;
+        align-items: center;
+        cursor: pointer;
+        margin-right: 18px;
+    }
+
+    .avatar-photo{
+        width: 0;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .avatar-text{
+        font-family: Exo, sans-serif;
+        font-weight: 500;
+        color: white;
+        margin: 0;
+        user-select: none;
+    }
+
+}
+
