@@ -2,6 +2,9 @@ import React, {useState} from "react";
 import '../css/auth.css'
 import Header from "../Tools/Header";
 import {useNavigate} from "react-router-dom";
+import FirebaseApi from "../Tools/firebaseApi";
+import {Constants} from "../Tools/constants";
+import {Alert, Slide, Snackbar} from "@mui/material";
 
 export default function Auth(){
 
@@ -9,6 +12,7 @@ export default function Auth(){
     const [actionButtonName, setActionButtonName] = useState('LOG IN')
     const [title, setTitle] = useState('LOG IN')
     const [isLoginBlock, setIsLoginBlock] = useState(true)
+    const [isOpenErrorBlock, setIsOpenErrorBlock] = useState(false)
 
     const navigation = useNavigate()
 
@@ -30,6 +34,39 @@ export default function Auth(){
         setActionButtonName('LOG IN')
     }
 
+    console.log(localStorage.getItem('userId'))
+
+    setTimeout(() => {
+        if (localStorage.getItem('userId') !== null){
+            navigation('/CaziMyno/profile')
+        }
+    }, 100)
+
+
+    const Login = () => {
+        if (actionButtonName === 'LOG IN'){
+
+            let phoneNumber = document.getElementById('login-phone-number').value
+            let password = document.getElementById('login-password').value
+
+            firebaseApi.login(phoneNumber, password, (user) => {
+                if (user === null){
+                    localStorage.setItem('userId', null)
+                    setIsOpenErrorBlock(true)
+                    setTimeout(()=> setIsOpenErrorBlock(false), 2000)
+                }
+                else{
+                    localStorage.setItem('userId', user.ID)
+                    navigation('/CaziMyno/profile')
+                }
+            })
+        }
+
+    }
+
+    let firebaseApi = new FirebaseApi()
+
+
     return(
         <div className={"MainBackground"}>
             <img src={require('../images/background.png')} className={'screen-background'}/>
@@ -42,10 +79,10 @@ export default function Auth(){
                     {
                         isLoginBlock &&
                         <div className={'login-block'} id={'login-register-block'}>
-                            <p className={'input-title'}>Username or E-Mail</p>
-                            <input className={'input-login'} placeholder={'Login'}/>
+                            <p className={'input-title'}>Phone number</p>
+                            <input id={"login-phone-number"} className={'input-login'} placeholder={'Phone number'}/>
                             <p className={'input-title'} style={{marginTop: 32}}>Password</p>
-                            <input className={'input-login'} placeholder={'*****'} type={'password'} style={{marginBottom: 40}}/>
+                            <input id={"login-password"}  className={'input-login'} placeholder={'*****'} type={'password'} style={{marginBottom: 40}}/>
                         </div>
                     }
                     {
@@ -60,7 +97,7 @@ export default function Auth(){
                         </div>
                     }
                     <div className={'buttons-block'}>
-                        <input type={'submit'} value={actionButtonName} className={'login-button'} onClick={() => navigation('/CaziMyno/profile')}/>
+                        <input type={'submit'} value={actionButtonName} className={'login-button'} onClick={Login}/>
                         <input type={'submit'} value={'COME BACK'} className={'comeback-button'} style={{marginTop: 28}} onClick={() => navigation('/CaziMyno/')}/>
                         {
                             isLoginBlock &&
@@ -77,6 +114,14 @@ export default function Auth(){
                     </div>
                 </div>
             </div>
+            <Snackbar
+                anchorOrigin={{ vertical:"bottom", horizontal:"center" }}
+                open={isOpenErrorBlock}
+                onClose={()=>{}}
+                key={"top center"}
+            >
+                <Alert severity="error">Incorrect data!</Alert>
+            </Snackbar>
         </div>
     )
 }

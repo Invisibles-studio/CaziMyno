@@ -1,16 +1,37 @@
-import React from "react";
+import React, {useState} from "react";
 import Header from "../Tools/Header";
 import '../css/fonts.css'
 import '../css/profile.css'
 import {useNavigate} from "react-router-dom";
+import FirebaseApi from "../Tools/firebaseApi";
 
 export default function Profile(){
+
+    const [userName, setUserName] = useState('')
+    const [userMoney, setUserMoney] = useState(0)
+    const [firstLoad, setFirstLoad] = useState(false)
 
     const navigation = useNavigate()
 
     let windowWidth = window.innerWidth
 
     let mobile = windowWidth >= 200 && windowWidth <= 800
+
+    let firebaseApi = new FirebaseApi()
+    let userId = localStorage.getItem('userId')
+
+    const Exit = () => {
+        navigation('/CaziMyno')
+        localStorage.setItem('userId', null)
+    }
+
+    if (!firstLoad){
+        firebaseApi.getUser(userId, (user) => {
+            setUserName(user.fullname)
+            setUserMoney(user.money)
+        })
+        setFirstLoad(true)
+    }
 
     return(
         <div className={"MainBackground"}>
@@ -34,15 +55,15 @@ export default function Profile(){
                     </div>
                     <div className={'column'} style={{marginLeft: 100, justifyContent: 'center', alignItems: 'center'}}>
                         <img src={require('../images/avatar.png')} className={'big-avatar'}/>
-                        <span className={'nickname'}>ANOIBY</span>
-                        <div className={'button-history'} style={{marginTop: 35}} onClick={() => navigation('/CaziMyno/')}>
+                        <span className={'nickname'}>{userName}</span>
+                        <div className={'button-history'} style={{marginTop: 35}} onClick={() => Exit()}>
                             <span className={'button-text'}>EXIT</span>
                         </div>
                     </div>
                     <div className={'column'} style={{justifyContent: 'center', marginLeft: 100}}>
                         <div className={'row'}>
                             <div className={'button-history green-button'}>
-                                <span className={'button-text'}>1999</span>
+                                <span className={'button-text'}>{userMoney}</span>
                             </div>
                             <img src={require('../images/addMoneyIcon.png')} className={'add-money'}/>
                         </div>
@@ -55,12 +76,12 @@ export default function Profile(){
                     <div className={'column'}>
                         <div className={'column'} style={{justifyContent: 'center', alignItems: 'center'}}>
                             <img src={require('../images/avatar.png')} className={'big-avatar'}/>
-                            <span className={'nickname'}>ANOIBY</span>
+                            <span className={'nickname'}>{userName}</span>
                         </div>
                         <div className={'column'} style={{alignItems: 'center', marginTop: 25}}>
                             <div className={'row'}>
                                 <div className={'button-history green-button'}>
-                                    <span className={'button-text'}>1999</span>
+                                    <span className={'button-text'}>{userMoney}</span>
                                 </div>
                                 <img src={require('../images/addMoneyIcon.png')} className={'add-money'}/>
                             </div>
@@ -78,6 +99,11 @@ export default function Profile(){
                                 <div className={'button-history green-button'} onClick={() => navigation('/CaziMyno/balance-history')}>
                                     <span className={'button-text'}>BALANCE HISTORY</span>
                                 </div>
+                            </div>
+                        </div>
+                        <div className={'column'} style={{alignItems: 'center'}}>
+                            <div className={'button-history'} style={{marginTop: 35}} onClick={() => Exit()}>
+                                <span className={'button-text'}>EXIT</span>
                             </div>
                         </div>
                     </div>

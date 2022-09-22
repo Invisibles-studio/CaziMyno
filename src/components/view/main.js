@@ -1,8 +1,17 @@
 import React from "react";
 import Header from "../Tools/Header";
 import '../css/main.css'
+import {useNavigate} from "react-router-dom";
 
 export default function Main(){
+
+    const navigation = useNavigate()
+
+    setTimeout(() => {
+        if (localStorage.getItem('userId') !== null){
+            navigation('/CaziMyno/profile')
+        }
+    }, 100)
 
     return(
         <div className={'MainBackground'}>
