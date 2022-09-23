@@ -1,6 +1,7 @@
 import React from "react";
 import { initializeApp } from "firebase/app";
 import { getDatabase, onValue, ref } from "firebase/database";
+import { getStorage, ref as storageRef, getDownloadURL } from "firebase/storage";
 import MD5 from "crypto-js/md5";
 
 import {Constants} from "./constants";
@@ -9,6 +10,7 @@ export default class FirebaseApi{
 
     app = initializeApp(Constants.firebase_config)
     database = getDatabase(this.app)
+    storage = getStorage(this.app)
 
     getUser = (userId, callback) => {
         onValue(ref(this.database, '/Users/'+userId), (snapshot) => {
@@ -34,4 +36,25 @@ export default class FirebaseApi{
         })
     }
 
+    getLastGames = (userId, callback) => {
+        onValue(ref(this.database, '/GameHistory/'+userId), (snapshot) => {
+            let value = snapshot.val()
+            let keys = Object.keys(value)
+            let values = Object.values(value)
+            if (keys.length > 10){
+                callback(values.slice(values.length-10, values.length).reverse())
+            }
+            else{
+                callback(values.reverse())
+            }
+        })
+    }
+
+    getProfilePhoto = (userId, callback) => {
+        getDownloadURL(storageRef(this.storage, 'UsersProfile/'+userId.toLowerCase()+'.png'))
+            .then((url) => {
+                callback(url)
+            }
+        )
+    }
 }

@@ -1,7 +1,8 @@
-import React from "react";
+import {React, useState} from "react";
 import '../css/fonts.css';
 import '../css/header.css';
 import {useNavigate} from "react-router-dom";
+import FirebaseApi from "./firebaseApi";
 
 export default function Header({auth = false}){
 
@@ -15,9 +16,23 @@ export default function Header({auth = false}){
             alignItems: 'center',
             justifyContent: 'space-between'
         },
-        avatar: {
+    }
 
+    const [profileUrl, setProfileUrl] = useState(localStorage.getItem('userImageUrl'))
+    const [firstLoad, setFirstLoad] = useState(false)
+
+    let firebaseApi = new FirebaseApi()
+
+    let userId = localStorage.getItem('userId')
+
+    if (!firstLoad && userId !== null){
+        if (profileUrl !== null){
+            firebaseApi.getProfilePhoto(userId, (url) => {
+                setProfileUrl(url)
+                localStorage.setItem('userImageUrl', url)
+            })
         }
+        setFirstLoad(true)
     }
 
     const navigation = useNavigate()
@@ -35,7 +50,7 @@ export default function Header({auth = false}){
             </div>
             <div className={'avatar-block'} onClick={() => navigation(auth ? '/CaziMyno/profile' : '/CaziMyno/auth')}>
                 <div style={style.avatar} className={'avatar-photo'} >
-                    <img src={require('../images/avatar.png')} style={{width: '100%', height: '100%'}}/>
+                    <img src={profileUrl !== null ? profileUrl : require('../images/avatar.png')} style={{width: '100%', height: '100%', borderWidth: 1}} className={profileUrl !== null ? 'big-avatar-border' : ''}/>
                 </div>
                 <p className={'avatar-text'}>{auth ? "My profile" : 'Authorization'}</p>
             </div>

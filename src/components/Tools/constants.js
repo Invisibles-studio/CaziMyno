@@ -21,4 +21,16 @@ export class Constants{
         appId: Constants.firebase_app_id,
         measurementId: Constants.firebase_measurement_id
     }
+
+    // ==== MONCASH ====
+    static moncash_client_id = 'af2053642749e7ff764cd220d3593ed6'
+    static moncash_client_secret = 'oHrr4tbnB1PH0uz6VQNUvfLi6fiszu11Zl0_qEcRsZmS1kl9KznGODX7ihQyaE7V'
+    static moncash_mode = 'sandbox'
+
+    static moncash_config = {
+        mode: Constants.moncash_mode,
+        client_id: Constants.moncash_client_id,
+        client_secret: Constants.moncash_client_secret
+    }
+
 }

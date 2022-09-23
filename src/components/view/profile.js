@@ -4,12 +4,14 @@ import '../css/fonts.css'
 import '../css/profile.css'
 import {useNavigate} from "react-router-dom";
 import FirebaseApi from "../Tools/firebaseApi";
+import MoncashApi from "../Tools/moncashApi";
 
 export default function Profile(){
 
     const [userName, setUserName] = useState('')
     const [userMoney, setUserMoney] = useState(0)
     const [firstLoad, setFirstLoad] = useState(false)
+    const [profileUrl, setProfileUrl] = useState(localStorage.getItem('userImageUrl'))
 
     const navigation = useNavigate()
 
@@ -22,7 +24,12 @@ export default function Profile(){
 
     const Exit = () => {
         navigation('/CaziMyno')
-        localStorage.setItem('userId', null)
+        localStorage.clear()
+    }
+
+    const Payment = () => {
+        let moncash = new MoncashApi()
+        moncash.createTransaction(50, '12341244242')
     }
 
     if (!firstLoad){
@@ -30,6 +37,13 @@ export default function Profile(){
             setUserName(user.fullname)
             setUserMoney(user.money)
         })
+        if (profileUrl !== null){
+            firebaseApi.getProfilePhoto(userId, (url) => {
+                setProfileUrl(url)
+                localStorage.setItem('userImageUrl', url)
+            })
+        }
+
         setFirstLoad(true)
     }
 
@@ -54,7 +68,7 @@ export default function Profile(){
                         </div>
                     </div>
                     <div className={'column'} style={{marginLeft: 100, justifyContent: 'center', alignItems: 'center'}}>
-                        <img src={require('../images/avatar.png')} className={'big-avatar'}/>
+                        <img src={profileUrl !== null ? profileUrl : require('../images/avatar.png')} className={`big-avatar ${profileUrl !== null ? 'big-avatar-border' : ''}`}/>
                         <span className={'nickname'}>{userName}</span>
                         <div className={'button-history'} style={{marginTop: 35}} onClick={() => Exit()}>
                             <span className={'button-text'}>EXIT</span>
@@ -65,7 +79,7 @@ export default function Profile(){
                             <div className={'button-history green-button'}>
                                 <span className={'button-text'}>{userMoney}</span>
                             </div>
-                            <img src={require('../images/addMoneyIcon.png')} className={'add-money'}/>
+                            <img src={require('../images/addMoneyIcon.png')} className={'add-money'} onClick={Payment}/>
                         </div>
                         <div className={'button-history yellow-button'} style={{marginTop: 36}}>
                             <span className={'button-text'}>Withdraw</span>
@@ -75,7 +89,7 @@ export default function Profile(){
                 { mobile &&
                     <div className={'column'}>
                         <div className={'column'} style={{justifyContent: 'center', alignItems: 'center'}}>
-                            <img src={require('../images/avatar.png')} className={'big-avatar'}/>
+                            <img src={profileUrl !== null ? profileUrl : require('../images/avatar.png')} className={`big-avatar ${profileUrl !== null ? 'big-avatar-border' : ''}`}/>
                             <span className={'nickname'}>{userName}</span>
                         </div>
                         <div className={'column'} style={{alignItems: 'center', marginTop: 25}}>
